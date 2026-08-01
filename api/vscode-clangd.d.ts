@@ -25,6 +25,15 @@ export interface ASTParams {
   range: vscodelc.Range;
 }
 
+export interface ASTSearchParams {
+  textDocument: vscodelc.TextDocumentIdentifier;
+  query: string;
+}
+
+export interface ASTSearchResult {
+  [binding: string]: ASTNode;
+}
+
 // Receive: tree of ASTNode
 export interface ASTNode {
   role: string;    // e.g. expression
