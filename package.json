@@ -427,7 +427,9 @@
                     "id": "clangd.ast",
                     "name": "AST",
                     "when": "clangd.ast.hasData"
-                },
+                }
+            ],
+            "search": [
                 {
                     "id": "clangd.astSearch",
                     "name": "AST Search",
