@@ -34,6 +34,21 @@ export interface ASTSearchResult {
   [binding: string]: ASTNode;
 }
 
+// clangd/completeASTMatcher wire format
+// Send: the matcher expression typed so far, and the cursor offset into it.
+export interface ASTMatcherCompletionParams {
+  searchQuery: string;
+  offset: number;
+}
+
+// Receive: candidate completions for the token at `offset`.
+export interface ASTMatcherCompletion {
+  // Text to insert at `offset` to complete the matcher.
+  typedText: string;
+  // Full matcher declaration (name, parameter types), shown to the user.
+  matcherDecl: string;
+}
+
 // Receive: tree of ASTNode
 export interface ASTNode {
   role: string;    // e.g. expression

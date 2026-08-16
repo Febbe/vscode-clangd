@@ -392,7 +392,7 @@
                 },
                 {
                     "command": "clangd.astSearch.close",
-                    "when": "view == clangd.astSearch",
+                    "when": "view == clangd.astSearchResults",
                     "group": "navigation"
                 }
             ],
@@ -408,6 +408,15 @@
                 {
                     "command": "clangd.memoryUsage",
                     "when": "clangd.memoryUsage.supported"
+                }
+            ]
+        },"viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "clangdASTSearchContainer",
+                    "title": "AST Search",
+                    "icon": "$(search)",
+                    "when": "clangd.astSearch.supported"
                 }
             ]
         },
@@ -429,11 +438,19 @@
                     "when": "clangd.ast.hasData"
                 }
             ],
-            "search": [
+            "clangdASTSearchContainer": [
                 {
                     "id": "clangd.astSearch",
                     "name": "AST Search",
-                    "when": "clangd.astSearch.hasData"
+                    "type": "webview",
+                    "when": "clangd.astSearch.supported",
+                    "icon": "$(search)"
+                },
+                {
+                    "id": "clangd.astSearchResults",
+                    "name": "AST Search Results",
+                    "when": "clangd.astSearch.hasData",
+                    "icon": "$(search)"
                 }
             ]
         }
